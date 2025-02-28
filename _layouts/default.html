@@ -11,8 +11,10 @@
         <div class="wrapper">
             <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title }}</a>
             <nav class="site-nav">
-                {% for page in site.header_pages %}
-                <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title }}</a>
+                {% for p in site.pages %}
+                    {% if site.header_pages contains p.path %}
+                    <a class="page-link" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+                    {% endif %}
                 {% endfor %}
             </nav>
         </div>
