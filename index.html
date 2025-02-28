@@ -1,1 +1,44 @@
-Hello World
+---
+layout: default
+title: 首页
+---
+
+<div class="home">
+    <h1 class="page-heading">最新文章</h1>
+
+    <ul class="post-list">
+        {% for post in paginator.posts %}
+        <li>
+            <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+            <h2>
+                <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h2>
+            {% if post.excerpt %}
+            <div class="post-excerpt">
+                {{ post.excerpt }}
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; 上一页</a>
+        {% endif %}
+
+        {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+        <span class="current-page">{{ page }}</span>
+        {% else %}
+        <a href="{% if page == 1 %}{{ '/' | relative_url }}{% else %}{{ site.paginate_path | relative_url | replace: ':num', page }}{% endif %}">{{ page }}</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}">下一页 &raquo;</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
