@@ -25,6 +25,7 @@ author:
 header_pages:
   - about.md
   - archive.md
+  - resume.md
 
 # 默认布局
 defaults:

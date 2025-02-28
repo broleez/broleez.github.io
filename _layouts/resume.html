@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <style>
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+        .resume-section {
+            margin-bottom: 2rem;
+        }
+        .resume-section h2 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        .resume-item {
+            margin-bottom: 1.5rem;
+        }
+        .resume-item h3 {
+            color: #34495e;
+            margin-bottom: 0.5rem;
+        }
+        .resume-item .meta {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .skill-tag {
+            background-color: #f0f2f5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 600px) {
+            .resume-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="resume-header">
+            <h1>{{ page.name }}</h1>
+            <p>{{ page.title }}</p>
+            <p>
+                {% if page.email %}
+                📧 {{ page.email }} |
+                {% endif %}
+                {% if page.phone %}
+                📱 {{ page.phone }} |
+                {% endif %}
+                {% if page.location %}
+                📍 {{ page.location }}
+                {% endif %}
+            </p>
+        </header>
+
+        {{ content }}
+
+        {% if page.education %}
+        <section class="resume-section">
+            <h2>教育背景</h2>
+            {% for edu in page.education %}
+            <div class="resume-item">
+                <h3>{{ edu.school }}</h3>
+                <div class="meta">{{ edu.degree }} | {{ edu.major }} | {{ edu.time }}</div>
+                {% if edu.description %}
+                <p>{{ edu.description }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+
+        {% if page.experience %}
+        <section class="resume-section">
+            <h2>工作经验</h2>
+            {% for exp in page.experience %}
+            <div class="resume-item">
+                <h3>{{ exp.company }}</h3>
+                <div class="meta">{{ exp.position }} | {{ exp.time }}</div>
+                {% if exp.description %}
+                <p>{{ exp.description }}</p>
+                {% endif %}
+                {% if exp.achievements %}
+                <ul>
+                    {% for achievement in exp.achievements %}
+                    <li>{{ achievement }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+
+        {% if page.skills %}
+        <section class="resume-section">
+            <h2>技能专长</h2>
+            <div class="skills-list">
+                {% for skill in page.skills %}
+                <span class="skill-tag">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+    </div>
+</body>
+</html>
