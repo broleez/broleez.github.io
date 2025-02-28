@@ -48,6 +48,8 @@ body {
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
+    padding: 0.5rem 0;
+    display: inline-block;
 }
 
 .site-nav .page-link:after {
@@ -74,6 +76,56 @@ body {
     padding: 3rem 0;
 }
 
+/* 表格样式 */
+table {
+    width: 100%;
+    margin: 1rem 0;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 0.75rem;
+    border: 1px solid #e1e4e8;
+    text-align: left;
+}
+
+th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* 代码块样式 */
+pre {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+code {
+    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+}
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #24292e;
+}
+
 .post-list {
     list-style: none;
     padding: 0;
@@ -86,6 +138,22 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.post-list li a.post-link {
+    position: static;
+}
+
+.post-list li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .post-list li:hover {
