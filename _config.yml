@@ -27,11 +27,50 @@ header_pages:
   - archive.md
   - resume.md
 
+# 内容集合
+collections:
+  notes:
+    output: true
+    permalink: /notes/:title/
+  projects:
+    output: true
+    permalink: /projects/:title/
+  books:
+    output: true
+    permalink: /books/:title/
+  tutorials:
+    output: true
+    permalink: /tutorials/:title/
+
 # 默认布局
 defaults:
   - scope:
       path: ""
       type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "books"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "tutorials"
     values:
       layout: "post"
       comments: true
