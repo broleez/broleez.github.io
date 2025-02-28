@@ -1,0 +1,130 @@
+/* 全局样式 */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 头部样式 */
+.site-header {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 1rem 0;
+    background-color: #fff;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.site-nav {
+    float: right;
+}
+
+.site-nav .page-link {
+    margin-left: 20px;
+    color: #666;
+    text-decoration: none;
+}
+
+.site-nav .page-link:hover {
+    color: #333;
+}
+
+/* 主要内容区域 */
+.page-content {
+    padding: 2rem 0;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    margin-bottom: 2rem;
+}
+
+.post-meta {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.post-link {
+    display: block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #2a7ae2;
+}
+
+.post-link:hover {
+    color: #1756a9;
+}
+
+/* 文章页面 */
+.post-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-content {
+    margin-top: 2rem;
+}
+
+.post-content h2 {
+    font-size: 1.75rem;
+    margin-top: 2rem;
+}
+
+.post-content h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+.post-navigation a {
+    text-decoration: none;
+    color: #2a7ae2;
+}
+
+/* 页脚样式 */
+.site-footer {
+    border-top: 1px solid #e8e8e8;
+    padding: 1rem 0;
+    background-color: #f8f8f8;
+    text-align: center;
+    color: #666;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 600px) {
+    .site-nav {
+        float: none;
+        margin-top: 1rem;
+    }
+
+    .site-nav .page-link {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .post-title {
+        font-size: 1.75rem;
+    }
+}
